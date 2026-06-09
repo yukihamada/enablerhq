@@ -13,6 +13,10 @@ server {
     root /usr/share/nginx/html;
     index index.html;
 
+    # Behind Fly's TLS proxy (internal port 8080). Without this, directory
+    # redirects leak ":8080" into the Location header (e.g. /2036 -> :8080/2036/).
+    absolute_redirect off;
+
     gzip on;
     gzip_types text/plain text/css text/xml application/json application/javascript image/svg+xml;
     gzip_min_length 256;
