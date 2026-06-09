@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2036 — MU と bim.house の10年後 / The Next Decade — Enabler Inc.</title>
+<meta name="description" content="2026から2036へ。AI自律アパレル MU と、言葉から建つ bim.house が描く10年後のビジョン。株式会社イネブラ。" />
+<link rel="canonical" href="https://enablerhq.com/2036" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="theme-color" content="#0a0a0c" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://enablerhq.com/2036" />
+<meta property="og:title" content="2036 — MU と bim.house の10年後" />
+<meta property="og:description" content="着るものを、住む場所を、世界中の一人ひとりが言葉で立ち上げられる。それが2036年。" />
+<meta property="og:image" content="https://enablerhq.com/og.jpg" />
+<meta property="og:site_name" content="Enabler Inc." />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="2036 — The Next Decade of MU & bim.house" />
+<meta name="twitter:image" content="https://enablerhq.com/og.jpg" />
+<style>
+  :root{
+    --bg:#0a0a0c; --bg2:#101015; --ink:#f4f4f6; --muted:#8a8a96;
+    --line:#23232b; --mu:#e8c547; --house:#5ec8c8; --accent:#fff;
+    --serif:"Hiragino Mincho ProN","Times New Roman",serif;
+    --sans:"Hiragino Sans","Helvetica Neue",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+  /* lang toggle */
+  .langbar{position:fixed;top:18px;right:22px;z-index:50;display:flex;gap:2px;
+    background:rgba(20,20,25,.7);backdrop-filter:blur(12px);border:1px solid var(--line);
+    border-radius:999px;padding:4px}
+  .langbar button{background:none;border:none;color:var(--muted);font-size:12px;
+    letter-spacing:.08em;padding:6px 14px;border-radius:999px;cursor:pointer;font-family:var(--sans)}
+  .langbar button.on{background:var(--ink);color:#000}
+  [data-en]{display:none}
+  body.en [data-ja]{display:none}
+  body.en [data-en]{display:revert}
+
+  /* hero */
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    position:relative;padding:120px 0 80px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(60% 50% at 80% 15%, rgba(232,197,71,.10), transparent 70%),
+      radial-gradient(55% 45% at 12% 85%, rgba(94,200,200,.10), transparent 70%)}
+  .hero .wrap{position:relative;z-index:1}
+  .year{font-family:var(--serif);font-size:clamp(64px,18vw,200px);line-height:.9;
+    letter-spacing:-.02em;font-weight:400;
+    background:linear-gradient(120deg,#fff 20%,var(--mu) 55%,var(--house) 90%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero h1{font-size:clamp(20px,3.2vw,32px);font-weight:600;margin:26px 0 14px;letter-spacing:-.01em}
+  .hero p{color:var(--muted);font-size:clamp(15px,1.8vw,18px);max-width:600px}
+  .scrollhint{margin-top:54px;color:var(--muted);font-size:12px;letter-spacing:.2em;
+    display:flex;align-items:center;gap:10px}
+  .scrollhint::before{content:"";width:34px;height:1px;background:var(--muted)}
+
+  /* section */
+  section{padding:110px 0;border-top:1px solid var(--line);position:relative}
+  .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:18px}
+  .eyebrow.mu{color:var(--mu)} .eyebrow.house{color:var(--house)}
+  h2{font-size:clamp(30px,5vw,52px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:20px}
+  .lead{font-size:clamp(16px,2vw,20px);color:var(--muted);max-width:680px;margin-bottom:8px}
+
+  /* timeline */
+  .tl{margin-top:64px;position:relative;padding-left:34px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:var(--line)}
+  .step{position:relative;padding:0 0 48px}
+  .step:last-child{padding-bottom:0}
+  .step::before{content:"";position:absolute;left:-31px;top:7px;width:11px;height:11px;
+    border-radius:50%;background:var(--bg);border:2px solid var(--mu)}
+  .house-tl .step::before{border-color:var(--house)}
+  .step .yr{font-family:var(--serif);font-size:20px;color:var(--ink);margin-bottom:4px}
+  .step .yr span{font-size:13px;color:var(--muted);font-family:var(--sans);margin-left:10px}
+  .step h3{font-size:18px;font-weight:600;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:15px;max-width:620px}
+
+  /* stat cards */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:54px}
+  .card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:26px 22px}
+  .card .n{font-family:var(--serif);font-size:38px;line-height:1;margin-bottom:8px}
+  .card.mu .n{color:var(--mu)} .card.house .n{color:var(--house)}
+  .card .l{font-size:13px;color:var(--muted)}
+
+  /* closing */
+  .closing{text-align:center;padding:140px 0}
+  .closing h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,5vw,46px);
+    line-height:1.3;max-width:760px;margin:0 auto 28px}
+  .closing .sig{color:var(--muted);font-size:13px;letter-spacing:.1em}
+  .links{display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+  .links a{color:var(--ink);text-decoration:none;border:1px solid var(--line);
+    padding:12px 22px;border-radius:999px;font-size:14px;transition:.25s}
+  .links a:hover{background:var(--ink);color:#000;border-color:var(--ink)}
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:12px;text-align:center}
+
+  @media(max-width:680px){.grid{grid-template-columns:1fr}}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="langbar">
+  <button id="b-ja" class="on" onclick="setLang('ja')">日本語</button>
+  <button id="b-en" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="year">2036</div>
+    <h1 data-ja>10年後、世界はどう着て、どこに住むのか。</h1>
+    <h1 data-en>A decade from now — how the world will dress, and where it will live.</h1>
+    <p data-ja>2026年。AIが服をつくる <b>MU</b> と、言葉から家が建つ <b>bim.house</b>。<br>この二つが描く10年後を、ここに置いておく。</p>
+    <p data-en><b>MU</b>, where AI creates apparel, and <b>bim.house</b>, where words become buildings — born in 2026. This is the decade they are building toward.</p>
+    <div class="scrollhint" data-ja>スクロールして10年を辿る</div>
+    <div class="scrollhint" data-en>SCROLL THROUGH THE DECADE</div>
+  </div>
+</header>
+
+<!-- MU -->
+<section id="mu">
+  <div class="wrap">
+    <div class="eyebrow mu reveal">MU / wearmu — 自律アパレルブランド</div>
+    <h2 class="reveal" data-ja>服が、自分で生まれ、<br>自分で世界へ出ていく。</h2>
+    <h2 class="reveal" data-en>Clothing that creates itself —<br>and walks out into the world.</h2>
+    <p class="lead reveal" data-ja>2026年の MU は毎時1着を生成し、数字はすべて公開していた。10年後、MU はもう「ブランド」ではない。世界中の人が、その日の気分を言葉にするだけで一点物の服が立ち上がる、生きた創作のプロトコルになる。</p>
+    <p class="lead reveal" data-en>In 2026, MU generated one garment every hour and published every number. Ten years on, MU is no longer a brand — it is a living protocol where anyone, anywhere, speaks their mood and a one-of-one garment comes to life.</p>
+
+    <div class="tl mu-tl">
+      <div class="step reveal">
+        <div class="yr">2026 <span data-ja>いま / 起点</span><span data-en>now / origin</span></div>
+        <h3 data-ja>毎時1着・全数字を公開</h3><h3 data-en>One garment per hour, every number public</h3>
+        <p data-ja>糸(ITO)トークン、透明性ページ、AIが作りAIが売る。世界に出す前提の最小単位がそろった。</p>
+        <p data-en>The ITO token, a public transparency page, AI that designs and AI that sells. The minimum viable unit, built to reach the world.</p>
+      </div>
+      <div class="step reveal">
+        <div class="yr">2029 <span>+3y</span></div>
+        <h3 data-ja>言葉から一点物へ</h3><h3 data-en>From words to one-of-one</h3>
+        <p data-ja>「今日は静かに勝ちたい」と打つと、その人のための一着が生成・受注生産される。在庫ゼロ、廃棄ゼロ。多言語・多通貨が当たり前に。</p>
+        <p data-en>Type “I want to win quietly today,” and a garment made for that moment is generated and made-to-order. Zero inventory, zero waste — multilingual and multi-currency by default.</p>
+      </div>
+      <div class="step reveal">
+        <div class="yr">2032 <span>+6y</span></div>
+        <h3 data-ja>作る人が100万人</h3><h3 data-en>A million makers</h3>
+        <p data-ja>誰もが自分のレーベルを持ち、売上の一部が作者へ還る。MU は「世界中のクリエイターの工場と販路」になる。</p>
+        <p data-en>Anyone runs their own label; a share of every sale returns to the maker. MU becomes the factory and the storefront for creators everywhere.</p>
+      </div>
+      <div class="step reveal">
+        <div class="yr">2036 <span>+10y</span></div>
+        <h3 data-ja>着る人と作る人の境界が消える</h3><h3 data-en>The line between wearer and maker dissolves</h3>
+        <p data-ja>服はウォレットであり、出会いの記録であり、コミュニティの証。MU は服を通じて人と人をつなぐ、世界規模の創作プロトコルへ。</p>
+        <p data-en>A garment is a wallet, a record of encounters, a proof of community. MU becomes a world-scale protocol that connects people through what they wear.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card mu reveal"><div class="n">1M+</div><div class="l" data-ja>自律レーベル数</div><div class="l" data-en>autonomous labels</div></div>
+      <div class="card mu reveal"><div class="n">0</div><div class="l" data-ja>在庫・廃棄(受注生産)</div><div class="l" data-en>inventory & waste (made-to-order)</div></div>
+      <div class="card mu reveal"><div class="n">100%</div><div class="l" data-ja>数字を公開し続ける透明性</div><div class="l" data-en>radical transparency, still public</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BIM HOUSE -->
+<section id="house">
+  <div class="wrap">
+    <div class="eyebrow house reveal">bim.house — 言葉が、建つ。</div>
+    <h2 class="reveal" data-ja>「ここに平屋を」と打てば、<br>3秒で家が立ち上がる。</h2>
+    <h2 class="reveal" data-en>“A single-story house, here.”<br>Three seconds later, it stands.</h2>
+    <p class="lead reveal" data-ja>2026年の bim.house は、言葉から bim.json と図面を生成し、その場で建築基準法を判定していた。10年後、設計と法規と発注と施工は一本の線でつながり、世界中の誰もが、敷地の制限いっぱいまで自分の家を描けるようになる。</p>
+    <p class="lead reveal" data-en>In 2026, bim.house turned words into BIM data and drawings, checking building code on the spot. Ten years on, design, regulation, ordering and construction become one continuous line — and anyone on Earth can draw their own home, right up to what the land allows.</p>
+
+    <div class="tl house-tl">
+      <div class="step reveal">
+        <div class="yr">2026 <span data-ja>いま / 起点</span><span data-en>now / origin</span></div>
+        <h3 data-ja>言葉 → bim.json → 法規判定</h3><h3 data-en>Words → BIM → instant code check</h3>
+        <p data-ja>住所を入れれば実敷地の法規がその場で出る。北海道でもモロッコでも、制限いっぱいまで。</p>
+        <p data-en>Enter an address and the site’s real regulations appear instantly — Hokkaido or Morocco, up to the limit of the land.</p>
+      </div>
+      <div class="step reveal">
+        <div class="yr">2029 <span>+3y</span></div>
+        <h3 data-ja>設計から確認申請までブラウザで完結</h3><h3 data-en>From design to permit, all in the browser</h3>
+        <p data-ja>生成された設計に建築士が押印し、確認申請が出る。設計の入口が、専門家から世界中の生活者へ開かれる。</p>
+        <p data-en>An architect signs off the generated design, and the permit is filed. The doorway to design opens from specialists to everyone who lives somewhere.</p>
+      </div>
+      <div class="step reveal">
+        <div class="yr">2032 <span>+6y</span></div>
+        <h3 data-ja>発注・地域業者・施工が一本に</h3><h3 data-en>Ordering, local builders, construction — one line</h3>
+        <p data-ja>工種を背骨に工程・発注・地域業者マッチ・検査がつながる。家を「描く」と「建てる」の間の摩擦が消えていく。</p>
+        <p data-en>Trades become the spine connecting scheduling, ordering, local-builder matching and inspection. The friction between “drawing” a house and “building” it disappears.</p>
+      </div>
+      <div class="step reveal">
+        <div class="yr">2036 <span>+10y</span></div>
+        <h3 data-ja>地球上のどの土地にも、最適な一棟を</h3><h3 data-en>For any land on Earth, the right single building</h3>
+        <p data-ja>気候・法規・文化を踏まえ、その土地に最も適した家が言葉から立ち上がる。住まいの設計が、世界中で当たり前の自由になる。</p>
+        <p data-en>Grounded in climate, code and culture, the house best suited to a place rises from words. Designing where you live becomes an ordinary freedom, worldwide.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card house reveal"><div class="n">3s</div><div class="l" data-ja>言葉から最初の一棟まで</div><div class="l" data-en>words to first building</div></div>
+      <div class="card house reveal"><div class="n">171</div><div class="l" data-ja>対応を広げる国・地域</div><div class="l" data-en>countries & regions, growing</div></div>
+      <div class="card house reveal"><div class="n">1→∞</div><div class="l" data-ja>専門家だけの設計を、誰もの自由へ</div><div class="l" data-en>design, from the few to everyone</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="wrap">
+    <h2 class="reveal" data-ja>着るものを、住む場所を、<br>世界中の一人ひとりが、言葉で立ち上げられる。<br>それが、2036年。</h2>
+    <h2 class="reveal" data-en>What we wear, where we live —<br>each person on Earth able to raise it from words.<br>That is 2036.</h2>
+    <p class="sig reveal" data-ja>世界に届くものを、仲間と。— Enabler Inc.</p>
+    <p class="sig reveal" data-en>Build for the world, together. — Enabler Inc.</p>
+    <div class="links reveal">
+      <a href="https://wearmu.com" target="_blank" rel="noopener">MU / wearmu →</a>
+      <a href="https://bim.house" target="_blank" rel="noopener">bim.house →</a>
+      <a href="https://wearmu.com/transparency" target="_blank" rel="noopener" data-ja>透明性レポート →</a>
+      <a href="https://wearmu.com/transparency" target="_blank" rel="noopener" data-en>Transparency →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026–2036 Enabler Inc. — a vision, not a promise. / ビジョンであり、確約ではありません。</div>
+</footer>
+
+<script>
+function setLang(l){
+  document.body.classList.toggle('en', l==='en');
+  document.documentElement.lang=l;
+  document.getElementById('b-ja').classList.toggle('on', l==='ja');
+  document.getElementById('b-en').classList.toggle('on', l==='en');
+}
+// reveal on scroll
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
