@@ -56,7 +56,7 @@ async function main(){
   assert.equal(await page.locator('#request-result img').count(),0);
   await page.locator('#request-guests').fill('0');await page.locator('#request-form button[type="submit"]').click();assert.equal(await page.locator('#request-result').isVisible(),false);
   await page.locator('#request-guests').fill('6');await page.locator('#language').click();assert.equal(await page.locator('#request-company').inputValue(),'Example Team');
-  await page.locator('header .wordmark').click();assert.equal(new URL(page.url()).pathname,'/');assert.equal(await page.locator('html').getAttribute('lang'),'en');
+  await page.locator('header .wordmark').click();await page.waitForURL(origin+'/?lang=en');await page.waitForFunction(()=>document.documentElement.lang==='en');assert.equal(new URL(page.url()).pathname,'/');assert.equal(await page.locator('html').getAttribute('lang'),'en');
   for(const lang of ['ja','en']){
    await page.goto(origin+'/strategy/?edition=1&lang='+lang);assert.equal(await page.locator('.product').count(),9);assert.equal(await page.locator('.experience-card').count(),0);
    const broken=await page.locator('a[href^="#"]').evaluateAll(links=>links.map(a=>a.getAttribute('href')).filter(h=>h!=='#'&&!document.getElementById(h.slice(1))));assert.deepEqual(broken,[]);
