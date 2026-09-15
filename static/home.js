@@ -28,6 +28,11 @@
     // Keep filters, fragments and unrelated query parameters when changing language.
     for (const { node, href } of links) {
       const url = new URL(href, current);
+      if (node.hasAttribute('data-retreat-inquiry')) {
+        url.searchParams.set('lang', lang);
+        node.href = url.href;
+        continue;
+      }
       if (url.origin !== current.origin || !['http:', 'https:'].includes(url.protocol)) continue;
       url.searchParams.set('lang', lang);
       node.setAttribute('href', url.pathname + url.search + url.hash);
