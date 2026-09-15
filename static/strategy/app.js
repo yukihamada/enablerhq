@@ -49,9 +49,22 @@ audit.uta.en[2]='Verify real playback, lyrics and scoring on a device.';
 // editorial layer: camp story, stay/BBQ plans and the enquiry builder.
 const edition = new URLSearchParams(location.search).get('edition')==='1'?'1':'2';
 if(edition==='2')enhancePage();
+// Give non-developers a task-oriented entry; keep the API guide one click away.
+const workProduct=products.find(p=>p.id==='teai');
+Object.assign(workProduct,{url:'https://teai.io/sente',extra:'https://teai.io/docs',extraJa:'開発者向け：APIドキュメント',extraEn:'For developers: API documentation'});
+Object.assign(workProduct.ja,{step:'まずSenteの使い方を見る。API連携は開発者向け資料へ。',cta:'Senteの使い方を見る'});
+Object.assign(workProduct.en,{step:'Start with the Sente guide. For API integrations, use the developer documentation.',cta:'Explore Sente'});
+document.querySelectorAll('.wordmark').forEach(a=>a.href='/');
+if(edition==='1')document.querySelector('.photo-cta').href='https://enabler.fun/#property';
+const shortcuts=el('nav','guide-shortcuts');shortcuts.setAttribute('aria-label','Guide sections');
+for(const[id,ja,en]of [['start','サービスを選ぶ','Choose a service'],...(edition==='2'?[['experiences','滞在と食','Stays & food'],['bbq-request','相談メールを作る','Prepare an enquiry']]:[]),['strategy','事業の考え方','Our approach'],['reality','調査記録','Audit findings']]){
+ const a=link('#'+id,ja);a.dataset.i='jump'+id;copy.en['jump'+id]=en;shortcuts.append(a);
+}
+document.querySelector('.hero').after(shortcuts);
 const originals = new Map([...document.querySelectorAll('[data-i]')].map(el=>[el,el.innerHTML]));
 let lang = new URLSearchParams(location.search).get('lang')==='en'?'en':'ja';
-let selected=edition==='2'?'recommended':'all';
+function selectedFromURL(){const value=new URLSearchParams(location.search).get('filter');return filters.ja.some(([id])=>id===value)?value:(edition==='2'?'recommended':'all');}
+let selected=selectedFromURL();
 function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;}
 function link(href,text,cls){const n=el('a',cls,text);n.href=href;return n;}
 function renderProducts(){
@@ -77,11 +90,18 @@ function render(){
   document.querySelectorAll('[data-alt-ja]').forEach(img=>{img.alt=img.dataset[lang==='ja'?'altJa':'altEn'];});
  const language=document.getElementById('language');language.textContent=lang==='ja'?'EN ↗':'日本語 ↗';language.setAttribute('aria-label',lang==='ja'?'Switch to English':'日本語に切り替える');
  const f=document.getElementById('filters');f.replaceChildren();f.setAttribute('aria-label',lang==='ja'?'目的で絞り込む':'Filter by intention');
- for(const[id,label]of filters[lang]){const b=el('button','',label);b.dataset.filter=id;b.onclick=()=>{selected=id;renderProducts();};f.append(b);}
+  for(const[id,label]of filters[lang]){const b=el('button','',label);b.dataset.filter=id;b.onclick=()=>{selected=id;const u=new URL(location.href);u.searchParams.set('filter',id);history.replaceState(null,'',u);renderProducts();};f.append(b);}
  renderProducts();
  const s=document.getElementById('scenes');s.replaceChildren();for(const[n,title,body,journey]of scenes[lang]){const a=el('article','scene');a.append(el('span','scene-icon',n),el('h3','',title),el('p','',body),el('p','journey',journey));s.append(a);}
   const a=document.getElementById('audit');a.replaceChildren();for(const p of products){const d=audit[p.id];if(!d)continue;const c=d[lang],details=el('details'),summary=el('summary');summary.append(el('strong','',p.name),el('span','audit-summary',c[0]),el('span','plus','+'));const body=el('div','audit-body');body.append(el('p','',c[1]));const next=el('p');next.append(el('b','',lang==='ja'?'次の改善：':'Next: '),document.createTextNode(c[2]));body.append(next);const proof=el('div','audit-proof');proof.append(link(d.proof||`evidence/${p.id}.txt`,lang==='ja'?'確認記録':'Evidence'));if(d.run)proof.append(link(d.run,lang==='ja'?'本番反映の結果':'Rollout result'));body.append(proof);details.append(summary,body);a.append(details);}
-  if(edition==='2')renderExperiences(lang);
- }
+   if(edition==='2')renderExperiences(lang);
+   document.querySelectorAll('.wordmark').forEach(a=>a.href=lang==='en'?'/?lang=en':'/');
+   document.querySelectorAll('[data-i="footer"]').forEach(n=>n.innerHTML=lang==='en'?'Service & experience guide / September 15, 2026<br>Products and experiences Yuki Hamada is working on.':(originals.get(n)||''));
+   document.querySelector('meta[name="description"]').content=lang==='en'?'Choose AI tools, your own voice, original products, stays and food. An Enabler service and experience guide.':'AIの仕事道具、自分の声、ものづくり、滞在と食。今日やりたいことから選ぶサービスガイド。';
+  }
+function revealHash(){const target=document.getElementById(location.hash.slice(1));if(!target)return;for(let n=target.parentElement;n;n=n.parentElement)if(n.tagName==='DETAILS')n.open=true;requestAnimationFrame(()=>target.scrollIntoView({behavior:'instant',block:'start'}));}
 document.getElementById('language').onclick=()=>{lang=lang==='ja'?'en':'ja';const u=new URL(location.href);u.searchParams.set('lang',lang);history.replaceState(null,'',u);render();};
+window.addEventListener('hashchange',revealHash);
+window.addEventListener('popstate',()=>{lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ja';selected=selectedFromURL();render();revealHash();});
 render();
+revealHash();

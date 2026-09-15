@@ -1,725 +1,182 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>株式会社イネブラ — Enabler Inc.</title>
-<meta name="description" content="株式会社イネブラ（Enabler Inc.）公式サイト。AI・ライフスタイル・フィンテックの3領域で、ローカルファースト×オープンソース志向のプロダクトを展開。代表取締役 濱田優貴（元メルカリ取締役CPO）。">
-<meta name="keywords" content="イネブラ, Enabler, 濱田優貴, Yuki Hamada, AI, スタートアップ, Tokyo, 千代田区">
-<meta name="author" content="株式会社イネブラ">
-<meta name="theme-color" content="#0A0A0A">
-<link rel="canonical" href="https://enablerhq.com/">
-
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" href="/favicon.svg">
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://enablerhq.com/">
-<meta property="og:title" content="株式会社イネブラ — Enabler Inc.">
-<meta property="og:description" content="AI・ライフスタイル・フィンテックの3領域でプロダクトを展開。ローカルファースト × オープンソース志向。">
-<meta property="og:image" content="https://enablerhq.com/og.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="Enabler Inc.">
-<meta property="og:locale" content="ja_JP">
-<meta property="og:locale:alternate" content="en_US">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="株式会社イネブラ — Enabler Inc.">
-<meta name="twitter:description" content="AI・ライフスタイル・フィンテックの3領域でプロダクトを展開するスタートアップ。">
-<meta name="twitter:image" content="https://enablerhq.com/og.jpg">
-
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "株式会社イネブラ",
-  "alternateName": "Enabler Inc.",
-  "url": "https://enablerhq.com",
-  "logo": "https://enablerhq.com/favicon.svg",
-  "founder": {
-    "@type": "Person",
-    "name": "Yuki Hamada",
-    "jobTitle": "Founder & CEO",
-    "alumniOf": ["Mercari", "NOT A HOTEL"],
-    "url": "https://twitter.com/yukihamada"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "1-5-6 Kudan-Minami, Resona Kudan Building 5F KS Floor",
-    "addressLocality": "Chiyoda-ku",
-    "addressRegion": "Tokyo",
-    "postalCode": "102-0074",
-    "addressCountry": "JP"
-  },
-  "email": "mail@yukihamada.jp",
-  "sameAs": [
-    "https://enablerdao.com",
-    "https://twitter.com/yukihamada",
-    "https://github.com/enablerdao"
-  ]
-}
-</script>
-
-<style>
-:root{
-  --k:#f6f3ed;
-  --w:#282b24;
-  --g:#fffffe;
-  --d:#e9e9df;
-  --line:#d7d8cc;
-  --dim:#595e51;
-  --a:#7c8a63;
-  --accent:#57613f;
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--k);color:var(--w);
-  font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans',system-ui,sans-serif;
-  font-weight:300;-webkit-font-smoothing:antialiased;line-height:1.7;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-::selection{background:var(--accent);color:#fff}
-
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 32px;background:rgba(246,243,237,0.92);backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(40,43,36,0.08)}
-.nav-logo{font-size:14px;font-weight:700;letter-spacing:0.4em}
-.nav-logo .accent{color:var(--accent);margin-left:6px;font-size:12px;letter-spacing:0.3em;
-  vertical-align:middle;border:1px solid var(--accent);padding:2px 6px;font-weight:600}
-.nav-links{display:flex;gap:24px;align-items:center}
-.nav-link{font-size:12px;letter-spacing:0.25em;text-transform:uppercase;opacity:0.45;
-  transition:opacity 0.2s}
-.nav-link:hover{opacity:1}
-.nav-cta{font-size:12px;letter-spacing:0.25em;text-transform:uppercase;
-  border:1px solid rgba(40,43,36,0.2);padding:8px 16px;transition:all 0.2s}
-.nav-cta:hover{border-color:var(--w);background:rgba(40,43,36,0.04)}
-
-/* ── HERO ── */
-#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding:120px 32px 80px;position:relative;overflow:hidden;text-align:center}
-.hero-bg{position:absolute;inset:0;background-image:
-  linear-gradient(rgba(40,43,36,0.05) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(40,43,36,0.05) 1px, transparent 1px);
-  background-size:60px 60px;pointer-events:none;mask-image:radial-gradient(ellipse at center, #000 30%, transparent 70%)}
-.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:680px;height:680px;background:radial-gradient(circle, rgba(87,97,63,0.10), transparent 60%);
-  filter:blur(40px);pointer-events:none}
-.hero-eyebrow{font-size:12px;letter-spacing:0.5em;text-transform:uppercase;
-  opacity:0.55;margin-bottom:32px;position:relative;z-index:2;color:var(--accent)}
-.hero-h1{font-size:clamp(38px,6vw,76px);font-weight:200;letter-spacing:-0.02em;line-height:1.1;
-  position:relative;z-index:2;margin-bottom:32px;max-width:880px}
-.hero-h1 em{font-style:normal;background:var(--accent);color:#000;padding:2px 14px;
-  display:inline-block}
-.hero-sub{font-size:clamp(14px,1.8vw,17px);opacity:0.55;line-height:1.95;font-weight:300;
-  position:relative;z-index:2;max-width:580px;margin-bottom:48px}
-.hero-stats{display:flex;gap:36px;position:relative;z-index:2;flex-wrap:wrap;justify-content:center;
-  padding-top:32px;border-top:1px solid var(--line);max-width:680px;width:100%;margin:0 auto}
-.hero-stat{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:80px}
-.hero-stat-num{font-size:24px;font-weight:200;letter-spacing:0.02em;color:var(--w)}
-.hero-stat-num.acc{color:var(--accent)}
-.hero-stat-label{font-size:12px;letter-spacing:0.25em;text-transform:uppercase;opacity:0.45}
-
-/* ── SECTION SHELL ── */
-.section{padding:120px 32px;border-top:1px solid var(--line);position:relative}
-.section-inner{max-width:1100px;margin:0 auto}
-.section-eyebrow{font-size:12px;letter-spacing:0.45em;text-transform:uppercase;
-  color:var(--accent);opacity:0.75;margin-bottom:14px}
-.section-title{font-size:clamp(28px,4.5vw,48px);font-weight:200;letter-spacing:-0.01em;
-  line-height:1.18;margin-bottom:18px}
-.section-title em{font-style:normal;color:var(--accent)}
-.section-sub{font-size:14px;opacity:0.5;line-height:1.95;max-width:600px;margin-bottom:60px}
-
-/* ── PHILOSOPHY ── */
-.philosophy{background:#efece4}
-.philo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:60px;margin-top:32px}
-.philo-item{padding:32px;background:#fcfaf5;border:1px solid var(--line);
-  transition:border-color 0.2s}
-.philo-item:hover{border-color:rgba(87,97,63,0.35)}
-.philo-item-num{font-size:12px;letter-spacing:0.3em;color:var(--accent);opacity:0.7;
-  margin-bottom:20px;font-family:monospace}
-.philo-item-h{font-size:18px;font-weight:300;letter-spacing:0.02em;margin-bottom:16px;
-  line-height:1.4;color:var(--w)}
-.philo-item-p{font-size:13px;opacity:0.5;line-height:1.95}
-
-/* ── DOMAINS (3 areas) ── */
-.domains-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--line);border:1px solid var(--line);margin-top:32px}
-.domain{background:#fcfaf5;padding:48px 36px;display:flex;flex-direction:column;
-  min-height:340px;position:relative;overflow:hidden;transition:background 0.3s}
-.domain:hover{background:#f2f0e8}
-.domain-num{font-size:12px;letter-spacing:0.3em;opacity:0.25;font-family:monospace;margin-bottom:24px}
-.domain-icon{font-size:32px;margin-bottom:24px;color:var(--accent);opacity:0.85;line-height:1}
-.domain-title{font-size:22px;font-weight:300;letter-spacing:0.02em;margin-bottom:16px}
-.domain-desc{font-size:13px;opacity:0.55;line-height:1.95;flex:1;margin-bottom:24px}
-.domain-products a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.15);transition:opacity .15s,border-color .15s}
-.domain-products a:hover{opacity:1!important;border-bottom-color:var(--accent)}
-.domain-products{font-size:12px;opacity:0.4;letter-spacing:0.05em;line-height:1.7;
-  padding-top:18px;border-top:1px solid var(--line)}
-.domain-products strong{color:var(--w);opacity:0.75;font-weight:500}
-
-/* ── PRODUCTS GRID ── */
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(220px,1fr));
-  gap:1px;background:var(--line);border:1px solid var(--line);margin-top:32px}
-.product{background:#fcfaf5;padding:24px;display:flex;flex-direction:column;gap:8px;
-  transition:background 0.2s;min-height:130px}
-.product:hover{background:#f2f0e8}
-.product-name{font-size:15px;font-weight:500;letter-spacing:0.01em;color:var(--w)}
-.product-status{font-size:12px;letter-spacing:0.25em;text-transform:uppercase;opacity:0.5;
-  display:inline-flex;align-items:center;gap:5px}
-.product-status::before{content:'●';font-size:6px}
-.product-status.live{color:#22c55e}
-.product-status.beta{color:#3b82f6}
-.product-status.dev{color:#f59e0b}
-.product-tag{font-size:12px;opacity:0.5;line-height:1.6;flex:1}
-.product-link{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;
-  opacity:0.4;margin-top:6px}
-.product-link:hover{opacity:1;color:var(--accent)}
-
-/* ── FOUNDER ── */
-.founder{background:#efece4}
-.founder-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;margin-top:32px;align-items:start}
-.founder-meta{padding-right:32px}
-.founder-name-jp{font-size:32px;font-weight:200;letter-spacing:0.02em;margin-bottom:6px}
-.founder-name-en{font-size:12px;letter-spacing:0.35em;text-transform:uppercase;
-  opacity:0.5;margin-bottom:24px}
-.founder-title{font-size:12px;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);
-  opacity:0.85;margin-bottom:32px}
-.founder-links{display:flex;gap:16px;flex-wrap:wrap}
-.founder-link{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.5;
-  border-bottom:1px solid rgba(40,43,36,0.2);padding:6px 0;transition:all 0.2s}
-.founder-link:hover{opacity:1;border-bottom-color:var(--accent)}
-.founder-bio p{font-size:14px;opacity:0.6;line-height:2;margin-bottom:18px}
-.founder-bio p strong{color:var(--w);opacity:1;font-weight:500}
-.founder-roles{margin-top:24px;padding-top:24px;border-top:1px solid var(--line)}
-.founder-role{display:grid;grid-template-columns:130px 1fr;gap:24px;font-size:13px;
-  padding:10px 0;border-bottom:1px solid var(--line)}
-.founder-role:last-child{border-bottom:none}
-.founder-role-period{opacity:0.4;font-family:monospace;font-size:12px;letter-spacing:0.04em}
-.founder-role-detail{opacity:0.7;line-height:1.7}
-.founder-role-detail strong{color:var(--w);opacity:1}
-
-/* ── PRESS ── */
-.press-list{display:flex;flex-direction:column;gap:1px;background:var(--line);
-  border:1px solid var(--line);margin-top:32px}
-.press-item{background:#fcfaf5;padding:24px 28px;display:grid;
-  grid-template-columns:120px 1fr 100px;gap:24px;align-items:center;transition:background 0.2s}
-.press-item:hover{background:#f2f0e8}
-.press-date{font-size:12px;font-family:monospace;opacity:0.5;letter-spacing:0.04em}
-.press-title{font-size:14px;font-weight:300;line-height:1.5}
-.press-arrow{font-size:14px;opacity:0.3;text-align:right}
-.press-item:hover .press-arrow{opacity:1;color:var(--accent)}
-
-/* ── COMPANY INFO ── */
-.company-info-table{width:100%;margin-top:32px;font-size:13px;border-collapse:collapse}
-.company-info-table tr{border-bottom:1px solid var(--line)}
-.company-info-table th{padding:18px 0;text-align:left;font-size:12px;letter-spacing:0.25em;
-  text-transform:uppercase;opacity:0.45;font-weight:400;width:200px;vertical-align:top}
-.company-info-table td{padding:18px 0;opacity:0.75;vertical-align:top;line-height:1.8}
-
-/* ── CONTACT ── */
-.contact{background:#efece4;text-align:center}
-.contact-emails{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin-top:40px}
-.contact-block{padding:24px}
-.contact-label{font-size:12px;letter-spacing:0.3em;text-transform:uppercase;
-  color:var(--accent);opacity:0.7;margin-bottom:12px}
-.contact-value{font-size:18px;font-weight:300;letter-spacing:0.01em}
-.contact-value a{transition:color 0.2s}
-.contact-value a:hover{color:var(--accent)}
-
-/* ── FOOTER ── */
-footer{padding:48px 32px 32px;border-top:1px solid var(--line);
-  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px}
-.footer-brand{font-size:12px;font-weight:600;letter-spacing:0.4em;opacity:0.7}
-.footer-copy{font-family:monospace;font-size:12px;opacity:0.35;letter-spacing:0.05em}
-.footer-links{display:flex;gap:24px;flex-wrap:wrap}
-.footer-link{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.4}
-.footer-link:hover{opacity:1}
-
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-  nav{padding:14px 18px}
-  .nav-links{gap:14px}
-  .nav-link{display:none}
-  #hero{padding:100px 20px 60px}
-  .hero-stats{gap:24px}
-  .section{padding:80px 20px}
-  .section-sub{margin-bottom:40px}
-  .philo-grid{grid-template-columns:1fr;gap:24px}
-  .philo-item{padding:24px}
-  .domains-grid{grid-template-columns:1fr}
-  .domain{padding:36px 24px;min-height:auto}
-  .products-grid{grid-template-columns:1fr 1fr}
-  .product{padding:18px;min-height:auto}
-  .founder-grid{grid-template-columns:1fr;gap:32px}
-  .founder-meta{padding-right:0}
-  .founder-role{grid-template-columns:1fr;gap:4px;padding:14px 0}
-  .press-item{grid-template-columns:1fr;gap:8px;padding:18px 20px}
-  .press-arrow{display:none}
-  .company-info-table th{width:auto;padding:14px 16px 4px 0;display:block}
-  .company-info-table td{padding:0 0 14px 0;display:block}
-  .contact-emails{flex-direction:column;gap:18px}
-  footer{padding:32px 20px;flex-direction:column;text-align:center}
-}
-</style>
-<script defer src="https://enabler-analytics.fly.dev/t.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title data-en="Enabler Inc. — Time to create. Time together.">株式会社イネブラ — つくる時間も、ともに過ごす時間も。</title>
+  <meta name="description" content="株式会社イネブラの公式サイト。AIで仕事を進める、声や服をつくる、合宿と食を楽しむ。目的から選べるサービスガイドと、会社情報・相談窓口をご案内します。" data-en-content="The official Enabler Inc. website. Move work forward with AI, create with your voice and ideas, or explore retreats and dining. Find a service, company information and a way to get in touch.">
+  <meta name="author" content="株式会社イネブラ" data-en-content="Enabler Inc.">
+  <meta name="theme-color" content="#f6f3ed">
+  <link rel="canonical" href="https://enablerhq.com/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://enablerhq.com/">
+  <meta property="og:title" content="株式会社イネブラ — つくる時間も、ともに過ごす時間も。" data-en-content="Enabler Inc. — Time to create. Time together.">
+  <meta property="og:description" content="AI・ものづくり・合宿と食。やりたいことから、次の一歩を選べるサービスガイド。" data-en-content="AI, making, retreats and dining. Choose your next step by what you want to do.">
+  <meta property="og:image" content="https://enablerhq.com/og.jpg">
+  <meta property="og:site_name" content="Enabler Inc.">
+  <meta property="og:locale" content="ja_JP" data-en-content="en_US">
+  <meta property="og:locale:alternate" content="en_US" data-en-content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="株式会社イネブラ — つくる時間も、ともに過ごす時間も。" data-en-content="Enabler Inc. — Time to create. Time together.">
+  <meta name="twitter:description" content="AI・ものづくり・合宿と食。やりたいことから、次の一歩を。" data-en-content="AI, making, retreats and dining. Find your next step.">
+  <meta name="twitter:image" content="https://enablerhq.com/og.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "株式会社イネブラ",
+    "alternateName": "Enabler Inc.",
+    "url": "https://enablerhq.com/",
+    "logo": "https://enablerhq.com/favicon.svg",
+    "founder": {"@type": "Person", "name": "Yuki Hamada"},
+    "email": "mail@yukihamada.jp",
+    "sameAs": ["https://enablerdao.com", "https://twitter.com/yukihamada", "https://github.com/enablerdao"]
+  }
+  </script>
+  <link rel="stylesheet" href="/home.css">
+  <script defer src="/home.js"></script>
+  <script defer src="https://enabler-analytics.fly.dev/t.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main" data-en="Skip to content">本文へ移動</a>
+  <header class="site-header shell">
+    <a class="nav-logo" href="/" aria-label="Enabler ホーム" data-en-aria-label="Enabler home">ENABLER<span class="accent">HQ</span></a>
+    <nav aria-label="メインナビゲーション" data-en-aria-label="Main navigation">
+      <a href="#domains" data-en="Find a service">目的から選ぶ</a>
+      <a href="#company" data-en="Company">会社情報</a>
+      <a href="#contact" data-en="Contact">ご相談</a>
+      <a id="language" href="?lang=en" lang="en" hreflang="en" aria-label="Switch to English" hidden>EN</a>
+    </nav>
+  </header>
 
-<!-- ── NAV ── -->
-<nav>
-  <a class="nav-logo" href="/">ENABLER<span class="accent">HQ</span></a>
-  <div class="nav-links">
-    <a class="nav-link" href="#domains">事業領域</a>
-    <a class="nav-link" href="#products">プロダクト</a>
-    <a class="nav-link" href="#founder">代表</a>
-    <a class="nav-link" href="#press">プレス</a>
-    <a class="nav-link" href="/strategy/">サービスガイド</a>
-    <a class="nav-link" href="/2036/">2036</a>
-    <a class="nav-cta" href="#contact">Contact</a>
-  </div>
-</nav>
-
-<!-- ── HERO ── -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-eyebrow">ENABLER INC. — TOKYO, JAPAN</div>
-  <h1 class="hero-h1">
-    <em>テクノロジー</em>で、<br>人生をもっと自由に。
-  </h1>
-  <p class="hero-sub">
-    「やりたい」を、今日の体験に。<br>
-    AIで手間を減らし、生まれた時間でつくる・遊ぶ・会いにいく。<br>
-    仕事の道具から、声、一着の服、過ごす場所まで。
-  </p>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-num acc">30+</div>
-      <div class="hero-stat-label">Live Products</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">160</div>
-      <div class="hero-stat-label">Paying Users</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">2024</div>
-      <div class="hero-stat-label">Founded</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">¥50M</div>
-      <div class="hero-stat-label">Funded (East V.)</div>
-    </div>
-  </div>
-  <div style="margin-top:2rem;display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">
-    <a href="/strategy/" style="background:var(--accent);color:#fff;padding:.6rem 1.4rem;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px">サービスガイドを見る ↗</a>
-    <a href="https://mart.wearmu.com" style="border:1px solid var(--accent);color:var(--accent);padding:.5rem 1rem;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px">MU MART ↗</a>
-    <a href="https://house.wearmu.com" style="border:1px solid var(--accent);color:var(--accent);padding:.5rem 1rem;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px">MU HOUSE ↗</a>
-    <a href="https://kata.house" style="border:1px solid var(--accent);color:var(--accent);padding:.5rem 1rem;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px">KATA.HOUSE ↗</a>
-    <a href="https://1hour.house" style="border:1px solid var(--accent);color:var(--accent);padding:.5rem 1rem;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px">1HOUR ↗</a>
-    <a href="https://bim.house" style="border:1px solid var(--accent);color:var(--accent);padding:.5rem 1rem;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px">BIM ↗</a>
-    <a href="https://zumen.house" style="border:1px solid var(--accent);color:var(--accent);padding:.5rem 1rem;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px">ZUMEN ↗</a>
-    <a href="https://solun.art" style="border:1px solid var(--accent);color:var(--accent);padding:.5rem 1rem;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px">SOLUNA ↗</a>
-    <a href="https://jiuflow.com" style="border:1px solid var(--accent);color:var(--accent);padding:.5rem 1rem;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px">JIUFLOW ↗</a>
-    <a href="https://chatweb.ai" style="border:1px solid var(--accent);color:var(--accent);padding:.5rem 1rem;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px">CHATWEB ↗</a>
-    <a href="https://stayflowapp.com" style="border:1px solid var(--accent);color:var(--accent);padding:.5rem 1rem;text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border-radius:2px">STAYFLOW ↗</a>
-  </div>
-</section>
-
-<!-- ── PHILOSOPHY ── -->
-<section class="section philosophy">
-  <div class="section-inner">
-    <div class="section-eyebrow">PHILOSOPHY — 私たちの考え方</div>
-    <h2 class="section-title">小さく、速く、<em>あなたのもの</em>に。</h2>
-    <p class="section-sub">
-      巨大なプラットフォームではなく、ひとりの生活に寄り添う道具を作ります。
-      データはユーザーのもの、コードは公開できるところは公開する。
-    </p>
-
-    <div class="philo-grid">
-      <div class="philo-item">
-        <div class="philo-item-num">01 / LOCAL FIRST</div>
-        <div class="philo-item-h">あなたのデータは、あなたのもの。</div>
-        <p class="philo-item-p">
-          クラウドに預けて初めて使える設計を避け、まず手元で動かせるソフトウェアを作ります。
-          オフラインでも、サーバーが止まっても、あなたの生活は続きます。
-        </p>
+  <main id="main">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow" data-en="Enabler Inc. / Technology for everyday life">株式会社イネブラ / 暮らしのためのテクノロジー</p>
+        <h1 id="hero-title"><span data-en="Time to create.">つくる時間も、</span><span data-en="Time together.">ともに過ごす時間も。</span></h1>
+        <p class="hero-lead" data-en="Move work forward with AI. Make room for your ideas and the people who matter.">AIで、仕事を前へ。生まれた余白で、好きなものをつくる。大切な人と、いい時間を過ごす。</p>
+        <p class="hero-description" data-en="We build tools and experiences for those moments. Start with one thing you want to do.">イネブラは、そのための道具と体験をつくる会社です。必要なものを、ひとつから。</p>
+        <a class="button primary" href="/strategy/" data-en="Find your first service →">自分に合うサービスを探す →</a>
+        <a class="text-link" href="#contact" data-en="For business enquiries →">法人の導入・協業のご相談 →</a>
       </div>
-      <div class="philo-item">
-        <div class="philo-item-num">02 / OPEN SOURCE</div>
-        <div class="philo-item-h">公開できるものは、公開する。</div>
-        <p class="philo-item-p">
-          自分たちが使っている道具のコードは、できる限りオープンにします。
-          検証可能であることが、信頼の前提だと考えています。
-        </p>
+      <figure class="hero-photo">
+        <img src="/strategy/media/atami.webp" width="1200" height="800" fetchpriority="high" alt="ホワイトハウス熱海の物件紹介写真" data-en-alt="WHITE HOUSE Atami property photograph">
+        <figcaption data-en="Property photograph: WHITE HOUSE Atami. Not a retreat or BBQ event photograph.">物件紹介：ホワイトハウス熱海。合宿・BBQの実施風景ではありません。</figcaption>
+      </figure>
+    </section>
+
+    <section class="section shell" id="domains" aria-labelledby="domains-title">
+      <div class="section-heading">
+        <p class="eyebrow" data-en="Start with your purpose">目的から選ぶ</p>
+        <h2 id="domains-title" data-en="What would you like to do?">今日は、何をしたい？</h2>
       </div>
-      <div class="philo-item">
-        <div class="philo-item-num">03 / AI NATIVE</div>
-        <div class="philo-item-h">AIを補助ではなく、主役として置く。</div>
-        <p class="philo-item-p">
-          ボタンの裏にAIを隠すのではなく、AIが直接運営や生成を担う設計を試します。
-          MUのような自律運営型ブランドはその実験のひとつです。
-        </p>
+      <div class="entry-grid">
+        <a class="entry" href="https://teai.io/sente">
+          <span class="entry-number" aria-hidden="true">01 /</span>
+          <h3 data-en="Work with AI">AIで仕事を進める</h3>
+          <p data-en="Give Sente a task in words and explore how AI can help you move it forward.">やりたい作業を、言葉で伝える。AIが作業を進める「Sente」の使い方へ。</p>
+          <span class="entry-cta" data-en="Explore Sente →">Senteを知る →</span>
+        </a>
+        <a class="entry" href="/strategy/?filter=create#start">
+          <span class="entry-number" aria-hidden="true">02 /</span>
+          <h3 data-en="Make something yours">つくる・伝える</h3>
+          <p data-en="Your voice, an original shirt, a picture-story. Find a way to give your idea a form.">自分の声、オリジナルの服、絵と声の物語。アイデアを形にする道具を選ぶ。</p>
+          <span class="entry-cta" data-en="Explore creative tools →">つくる道具を探す →</span>
+        </a>
+        <a class="entry" href="/strategy/#experiences">
+          <span class="entry-number" aria-hidden="true">03 /</span>
+          <h3 data-en="Retreats & dining">合宿・食を楽しむ</h3>
+          <p data-en="A focused BLANK retreat. A KOKON grill chef at dinner. Explore a plan for time together.">BLANKで集中する時間、古今の焼き師を囲む食卓。集まる目的に合うプランへ。</p>
+          <span class="entry-cta" data-en="Explore retreats & BBQ →">合宿・出張BBQを見る →</span>
+        </a>
       </div>
-      <div class="philo-item">
-        <div class="philo-item-num">04 / SOLO BUILT</div>
-        <div class="philo-item-h">ひとりで、量産する。</div>
-        <p class="philo-item-p">
-          大規模チームではなく、少人数 × 強力な道具で多数のプロダクトを並行開発します。
-          現在18以上のプロダクトが本番稼働中。
-        </p>
+      <p class="section-note" data-en="Accounts, prices and availability vary by service. Check the details at your chosen destination.">登録・料金・提供条件はサービスごとに異なります。詳しくは各入口でご確認ください。</p>
+    </section>
+
+    <section class="section shell" id="products" aria-labelledby="products-title">
+      <div class="section-heading compact-heading">
+        <h2 id="products-title" data-en="A little more about the services">サービスを、もう少し。</h2>
+        <a class="text-link" href="/strategy/#start" data-en="See the service guide →">サービスガイドへ →</a>
+      </div>
+      <div class="service-grid">
+        <article class="service">
+          <h3>KOE</h3>
+          <p data-en="Register your voice by recording a sentence, then explore reading written words in your own voice.">一文を録音して声を登録。入力した文章を、自分の声で読み上げるための入口です。</p>
+          <a class="text-link" href="https://koe.live/enroll" data-en="Register your voice →">自分の声を登録する →</a>
+        </article>
+        <article class="service">
+          <h3>MU</h3>
+          <p data-en="Describe a motif and design an original shirt or hoodie. Design generation and product purchase are separate.">好きなモチーフを言葉にして、Tシャツやパーカーのデザインへ。生成と購入は別のステップです。</p>
+          <a class="text-link" href="https://wearmu.com/make" data-en="Explore the maker →">つくる画面へ →</a>
+        </article>
+        <article class="service">
+          <h3>SOLUNA</h3>
+          <p data-en="Explore properties and recurring stay plans in Hokkaido, Atami and Hawaii. Terms vary by property and plan.">北海道・熱海・ハワイの物件と、繰り返し滞在するプランをご案内。条件は物件・プランごとに異なります。</p>
+          <a class="text-link" href="https://solun.art/collection" data-en="Explore properties →">物件とプランを見る →</a>
+        </article>
+      </div>
+    </section>
+
+    <div class="company-band">
+      <div class="shell company-grid">
+        <section id="company" aria-labelledby="company-title">
+          <p class="eyebrow" data-en="About Enabler">イネブラについて</p>
+          <h2 id="company-title" data-en="Company information">会社情報</h2>
+          <dl class="company-details">
+            <div><dt data-en="Company">商号</dt><dd data-en="Enabler Inc.">株式会社イネブラ（Enabler Inc.）</dd></div>
+            <div><dt data-en="Representative">代表者</dt><dd data-en="Yuki Hamada, Representative Director & CEO">代表取締役CEO 濱田 優貴</dd></div>
+            <div><dt data-en="Business">事業内容</dt><dd data-en="Software and hardware product development and operation; AI consulting and technology services.">ソフトウェア・ハードウェアプロダクトの開発・運営。AIプロダクトのコンサルティング、技術提供。</dd></div>
+            <div><dt data-en="Contact">連絡先</dt><dd><a href="mailto:mail@yukihamada.jp">mail@yukihamada.jp</a></dd></div>
+          </dl>
+        </section>
+        <section id="founder" aria-labelledby="founder-title">
+          <p class="eyebrow" data-en="Founder">代表</p>
+          <h2 id="founder-title" data-en="Yuki Hamada">濱田 優貴</h2>
+          <p class="founder-role" data-en="Founder & CEO, Enabler Inc.">株式会社イネブラ 代表取締役CEO</p>
+          <p data-en="Former Mercari Director and CPO, and NOT A HOTEL co-founder. Building tools and experiences for more freedom in everyday life.">元メルカリ取締役CPO、NOT A HOTEL共同創業者。日々を少し自由にする道具と体験づくりに取り組んでいます。</p>
+          <div class="link-row"><a href="https://twitter.com/yukihamada">X / @yukihamada</a><a href="https://github.com/yukihamada">GitHub</a></div>
+          <a class="text-link" href="/2036/" data-en="Explore our 2036 vision →">2036年への構想を読む →</a>
+        </section>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ── DOMAINS (3 areas) ── -->
-<section class="section" id="domains">
-  <div class="section-inner">
-    <div class="section-eyebrow">3 BUSINESS DOMAINS</div>
-    <h2 class="section-title">3つの<em>事業領域</em>。</h2>
-    <p class="section-sub">
-      AI、ライフスタイル、フィンテックの3領域に集中し、それぞれで複数のプロダクトを展開しています。
-    </p>
-
-    <div class="domains-grid">
-      <div class="domain">
-        <div class="domain-num">DOMAIN 01</div>
-        <div class="domain-icon">◐</div>
-        <div class="domain-title">AI &amp; Communication</div>
-        <p class="domain-desc">
-          ローカルで動くAI、音声入力、対話エージェント。
-          人間とコンピュータの境界を、より滑らかにする道具を作っています。
-        </p>
-        <div class="domain-products">
-          <strong>Products:</strong>　<a href="https://elio.love" target="_blank" rel="noopener">Elio</a>・<a href="https://chatweb.ai" target="_blank" rel="noopener">chatweb.ai</a>・<a href="https://koe.live" target="_blank" rel="noopener">Koe</a>・<a href="https://nou.fund" target="_blank" rel="noopener">NOU</a>・<a href="https://trio.fly.dev" target="_blank" rel="noopener">Trio</a>・<a href="https://github.com/yukihamada/openclaw" target="_blank" rel="noopener">OpenClaw</a>
-        </div>
+    <section class="section shell" id="press" aria-labelledby="press-title">
+      <div class="section-heading compact-heading">
+        <h2 id="press-title" data-en="News & press">お知らせ・プレス</h2>
+        <a class="text-link" href="#contact" data-en="Press enquiries →">取材のお問い合わせ →</a>
       </div>
-      <div class="domain">
-        <div class="domain-num">DOMAIN 02</div>
-        <div class="domain-icon">◑</div>
-        <div class="domain-title">Lifestyle &amp; Living</div>
-        <p class="domain-desc">
-          住まい・移動・身につけるもの。生活の中に静かに溶け込む、
-          ハードウェア・ソフトウェア両面のプロダクトを開発しています。
-        </p>
-        <div class="domain-products">
-          <strong>Products:</strong>　<a href="https://stayflowapp.com" target="_blank" rel="noopener">StayFlow</a>・<a href="https://kagi.life" target="_blank" rel="noopener">KAGI</a>・<a href="https://solun.art" target="_blank" rel="noopener">SOLUNA</a>・<a href="https://wearmu.com" target="_blank" rel="noopener">MU</a>・<a href="https://kata.house" rel="noopener">KATA.HOUSE</a>・<a href="https://1hour.house" rel="noopener">1HOUR.HOUSE</a>・<a href="https://bim.house" rel="noopener">BIM.HOUSE</a>・<a href="https://zumen.house" rel="noopener">ZUMEN.HOUSE</a>
-        </div>
+      <ul class="press-list">
+        <li><a href="https://yukihamada.jp/blog/2026-05-13-portfolio-and-security"><time datetime="2026-05-13">2026.05.13</time><span data-en="What we are building, and why security matters — CEO blog (Japanese)">いま作っているものと、セキュリティへの視点（代表ブログ）</span><span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://enablerdao.com/blog/portfolio-and-security-2026-05-13"><time datetime="2026-05-13">2026.05.13</time><span data-en="How we think about the product portfolio — Enabler blog (Japanese)">プロダクト全体の考え方（Enablerブログ）</span><span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://wearmu.com/press.html"><time datetime="2026-05-07">2026.05.07</time><span data-en="Introducing MU, an AI apparel brand — Press release (Japanese)">AIアパレルブランド「MU」の公開について</span><span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://enablerdao.com/blog/mu-launch-2026-05-07"><time datetime="2026-05-07">2026.05.07</time><span data-en="The story and technology behind MU — Enabler blog (Japanese)">MUの立ち上げ背景・技術詳細（Enablerブログ）</span><span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </section>
+
+    <section class="contact shell" id="contact" aria-labelledby="contact-title">
+      <div>
+        <p class="eyebrow" data-en="Let’s talk">ご相談・お問い合わせ</p>
+        <h2 id="contact-title" data-en="What would you like to make possible?">やってみたいことを、聞かせてください。</h2>
+        <p data-en="For AI adoption, partnerships, retreats or press enquiries, email us with your goal and preferred timing.">AIの導入、協業、合宿、取材のご相談に。目的と希望時期を添えて、メールでご連絡ください。</p>
       </div>
-      <div class="domain">
-        <div class="domain-num">DOMAIN 03</div>
-        <div class="domain-icon">◒</div>
-        <div class="domain-title">Fintech &amp; Productivity</div>
-        <p class="domain-desc">
-          経費・契約・収支管理。事業者と個人事業主の生産性を、
-          AIとシンプルなUIで底上げするツール群です。
-        </p>
-        <div class="domain-products">
-          <strong>Products:</strong>　<a href="https://pasha.run" target="_blank" rel="noopener">パシャ</a>・<a href="https://charin.fly.dev" target="_blank" rel="noopener">チャリン</a>・<a href="https://saku.fly.dev" target="_blank" rel="noopener">サクッ</a>・<a href="https://pon.fly.dev" target="_blank" rel="noopener">ポン</a>・<a href="https://enablerdao.com#enai" target="_blank" rel="noopener">ENAI Token (研究中)</a>
-        </div>
+      <div class="contact-action">
+        <a class="button primary" href="mailto:mail@yukihamada.jp" data-en="Send an enquiry by email →">メールで相談する →</a>
+        <a class="email" href="mailto:mail@yukihamada.jp">mail@yukihamada.jp</a>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
 
-<!-- ── PRODUCTS ── -->
-<section class="section" id="products">
-  <div class="section-inner">
-    <div class="section-eyebrow">PRODUCTS — 主要プロダクト</div>
-    <h2 class="section-title">ひとりで <em>18個以上</em>。</h2>
-    <p class="section-sub">
-      代表が個人で立ち上げ、開発しているプロダクト群。
-      詳細は <a href="https://enablerdao.com/products" style="color:var(--accent)" target="_blank">enablerdao.com/products</a> に掲載しています。
-    </p>
-
-    <div class="products-grid">
-      <a class="product" href="https://apps.apple.com/jp/app/id6757635481" target="_blank">
-        <div class="product-name">Elio</div>
-        <div class="product-status live">Live · iOS</div>
-        <div class="product-tag">完全オフラインのAIアプリ</div>
-        <div class="product-link">App Store →</div>
-      </a>
-      <a class="product" href="https://chatweb.ai" target="_blank">
-        <div class="product-name">chatweb.ai</div>
-        <div class="product-status live">Live · Web</div>
-        <div class="product-tag">ブラウザで動くClaudeターミナル</div>
-        <div class="product-link">Visit →</div>
-      </a>
-      <a class="product" href="https://wearmu.com" target="_blank">
-        <div class="product-name">MU</div>
-        <div class="product-status live">Live · Web</div>
-        <div class="product-tag">AI自律運営アパレルブランド</div>
-        <div class="product-link">Visit →</div>
-      </a>
-      <a class="product" href="https://stayflowapp.com" target="_blank">
-        <div class="product-name">StayFlow</div>
-        <div class="product-status live">Live · Web</div>
-        <div class="product-tag">民泊管理SaaS（500+施設）</div>
-        <div class="product-link">Visit →</div>
-      </a>
-      <a class="product" href="https://jiuflow.com" target="_blank">
-        <div class="product-name">JiuFlow</div>
-        <div class="product-status live">Live · iOS</div>
-        <div class="product-tag">柔術データプラットフォーム</div>
-        <div class="product-link">Visit →</div>
-      </a>
-      <a class="product" href="https://apps.apple.com/jp/app/id6760736346" target="_blank">
-        <div class="product-name">パシャ</div>
-        <div class="product-status live">Live · iOS</div>
-        <div class="product-tag">レシートOCR経費管理</div>
-        <div class="product-link">App Store →</div>
-      </a>
-      <a class="product" href="https://koe.live" target="_blank">
-        <div class="product-name">Koe</div>
-        <div class="product-status live">Live · Web</div>
-        <div class="product-tag">本人の実声だけが流れる24時間ラジオ</div>
-        <div class="product-link">Visit →</div>
-      </a>
-      <a class="product" href="https://solun.art" target="_blank">
-        <div class="product-name">SOLUNA</div>
-        <div class="product-status live">Live · Web · iOS</div>
-        <div class="product-tag">5秒で世界に音楽配信</div>
-        <div class="product-link">Visit →</div>
-      </a>
-      <a class="product" href="https://apps.apple.com/jp/app/id6760352863" target="_blank">
-        <div class="product-name">Koe</div>
-        <div class="product-status live">Live · iOS</div>
-        <div class="product-tag">話すだけで文字になる音声入力</div>
-        <div class="product-link">App Store →</div>
-      </a>
-      <a class="product" href="https://apps.apple.com/jp/app/id6761040925" target="_blank">
-        <div class="product-name">サクッ</div>
-        <div class="product-status live">Live · iOS</div>
-        <div class="product-tag">確定申告・青色申告</div>
-        <div class="product-link">App Store →</div>
-      </a>
-      <a class="product" href="https://misebanai.com" target="_blank">
-        <div class="product-name">ミセバンAI</div>
-        <div class="product-status live">Live · Web</div>
-        <div class="product-tag">店舗運営支援AI</div>
-        <div class="product-link">Visit →</div>
-      </a>
-      <a class="product" href="https://takaramarket.com" target="_blank">
-        <div class="product-name">Takara Market</div>
-        <div class="product-status live">Live · Web</div>
-        <div class="product-tag">日本コレクタブル世界配送</div>
-        <div class="product-link">Visit →</div>
-      </a>
-      <a class="product" href="https://kata.house">
-        <div class="product-name">KATA.HOUSE</div>
-        <div class="product-status live">Live · Web</div>
-        <div class="product-tag">100+ 建築型カタログから AI 設計</div>
-        <div class="product-link">Visit →</div>
-      </a>
-      <a class="product" href="https://1hour.house">
-        <div class="product-name">1HOUR.HOUSE</div>
-        <div class="product-status live">Live · Web</div>
-        <div class="product-tag">60 分で家を 3 パターン設計</div>
-        <div class="product-link">Visit →</div>
-      </a>
-      <a class="product" href="https://bim.house">
-        <div class="product-name">BIM.HOUSE</div>
-        <div class="product-status live">Live · Web</div>
-        <div class="product-tag">IFC4.3 / Revit / DXF 完全データ提供</div>
-        <div class="product-link">Visit →</div>
-      </a>
-      <a class="product" href="https://zumen.house">
-        <div class="product-name">ZUMEN.HOUSE</div>
-        <div class="product-status live">Live · Web</div>
-        <div class="product-tag">5 種図面を即日 PDF 納品</div>
-        <div class="product-link">Visit →</div>
-      </a>
-      <a class="product" href="https://enablerdao.com/products" target="_blank">
-        <div class="product-name">+ more</div>
-        <div class="product-status">View all</div>
-        <div class="product-tag">KAGI · BANTO · NOU · Trio など</div>
-        <div class="product-link">All Products →</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOUNDER ── -->
-<section class="section founder" id="founder">
-  <div class="section-inner">
-    <div class="section-eyebrow">FOUNDER — 代表</div>
-    <h2 class="section-title">創業者・<em>濱田優貴</em>。</h2>
-    <p class="section-sub">
-      メルカリ取締役CPO、NOT A HOTEL共同創業者を経て、2024年にイネブラ創業。
-    </p>
-
-    <div class="founder-grid">
-      <div class="founder-meta">
-        <div class="founder-name-jp">濱田 優貴</div>
-        <div class="founder-name-en">Yuki Hamada</div>
-        <div class="founder-title">代表取締役CEO / Founder</div>
-        <div class="founder-links">
-          <a class="founder-link" href="https://twitter.com/yukihamada" target="_blank">Twitter / X</a>
-          <a class="founder-link" href="https://github.com/yukihamada" target="_blank">GitHub</a>
-          <a class="founder-link" href="mailto:mail@yukihamada.jp">Email</a>
-        </div>
-      </div>
-
-      <div class="founder-bio">
-        <p>
-          1983年生まれ。<strong>株式会社メルカリ取締役CPO</strong>（最高プロダクト責任者、2014〜2021）として
-          日本最大のフリマアプリの成長を主導。<strong>NOT A HOTEL株式会社</strong>共同創業者・元取締役
-          （2018〜2024）として会員制ホテルサービスを立ち上げ。
-        </p>
-        <p>
-          2024年に<strong>株式会社イネブラ</strong>を創業し、<strong>East Ventures</strong>より優先株5%で
-          5,000万円の出資を受ける。AI・ハードウェア・SaaSなど複数領域で18以上のプロダクトを開発・運営している。
-        </p>
-
-        <div class="founder-roles">
-          <div class="founder-role">
-            <div class="founder-role-period">2024〜現在</div>
-            <div class="founder-role-detail"><strong>株式会社イネブラ</strong>　代表取締役CEO</div>
-          </div>
-          <div class="founder-role">
-            <div class="founder-role-period">2024〜現在</div>
-            <div class="founder-role-detail"><strong>令和トラベル（NEWT）</strong>　社外取締役</div>
-          </div>
-          <div class="founder-role">
-            <div class="founder-role-period">2018〜2024</div>
-            <div class="founder-role-detail"><strong>NOT A HOTEL</strong>　共同創業者・元取締役</div>
-          </div>
-          <div class="founder-role">
-            <div class="founder-role-period">2014〜2021</div>
-            <div class="founder-role-detail"><strong>メルカリ</strong>　取締役CPO（最高プロダクト責任者）</div>
-          </div>
-          <div class="founder-role">
-            <div class="founder-role-period">2003〜2013</div>
-            <div class="founder-role-detail"><strong>サイブリッジ</strong>　共同創業者</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PRESS ── -->
-<section class="section" id="press">
-  <div class="section-inner">
-    <div class="section-eyebrow">PRESS — プレスリリース</div>
-    <h2 class="section-title">最新の<em>お知らせ</em>。</h2>
-
-    <div class="press-list">
-      <a class="press-item" href="https://yukihamada.jp/blog/2026-05-13-portfolio-and-security" target="_blank">
-        <div class="press-date">2026.05.13</div>
-        <div class="press-title">衣食住でぜんぶ並べてみた——いま濱田が作っているもの、そして最近セキュリティに目がいく理由（CEOブログ）</div>
-        <div class="press-arrow">↗</div>
-      </a>
-      <a class="press-item" href="https://enablerdao.com/blog/portfolio-and-security-2026-05-13" target="_blank">
-        <div class="press-date">2026.05.13</div>
-        <div class="press-title">14プロダクトを「流す・積む・渡す」の3軸で整理——Enabler の現フェーズ（Enabler ブログ）</div>
-        <div class="press-arrow">↗</div>
-      </a>
-      <a class="press-item" href="https://wearmu.com/press.html" target="_blank">
-        <div class="press-date">2026.05.07</div>
-        <div class="press-title">運営判断に人間が介在しないAIアパレルブランド「MU」を公開、コードもMITで完全オープンソース化</div>
-        <div class="press-arrow">↗</div>
-      </a>
-      <a class="press-item" href="https://enablerdao.com/blog/mu-launch-2026-05-07" target="_blank">
-        <div class="press-date">2026.05.07</div>
-        <div class="press-title">MU の立ち上げ背景・技術詳細（Enabler ブログ）</div>
-        <div class="press-arrow">↗</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ── COMPANY INFO ── -->
-<section class="section" id="company">
-  <div class="section-inner">
-    <div class="section-eyebrow">COMPANY — 会社概要</div>
-    <h2 class="section-title">会社情報。</h2>
-
-    <table class="company-info-table">
-      <tr>
-        <th>商号</th>
-        <td>株式会社イネブラ（英文：Enabler Inc.）</td>
-      </tr>
-      <tr>
-        <th>所在地</th>
-        <td>〒102-0074<br>東京都千代田区九段南1丁目5番6号<br>りそな九段ビル5階 KSフロア</td>
-      </tr>
-      <tr>
-        <th>代表者</th>
-        <td>代表取締役CEO 濱田 優貴</td>
-      </tr>
-      <tr>
-        <th>設立</th>
-        <td>2024年</td>
-      </tr>
-      <tr>
-        <th>資本構成</th>
-        <td>East Ventures より優先株5%で5,000万円の出資（2025年）</td>
-      </tr>
-      <tr>
-        <th>事業内容</th>
-        <td>
-          AI・ライフスタイル・フィンテック領域でのソフトウェア / ハードウェアプロダクトの開発・運営<br>
-          AIプロダクトのコンサルティング、技術提供
-        </td>
-      </tr>
-      <tr>
-        <th>主要プロダクト</th>
-        <td>Elio · chatweb.ai · MU · StayFlow · JiuFlow · パシャ · Koe · SOLUNA 他（18+）</td>
-      </tr>
-      <tr>
-        <th>連絡先</th>
-        <td>mail@yukihamada.jp / 090-7409-0407</td>
-      </tr>
-    </table>
-  </div>
-</section>
-
-<!-- ── CONTACT ── -->
-<section class="section contact" id="contact">
-  <div class="section-inner">
-    <div class="section-eyebrow">CONTACT — お問い合わせ</div>
-    <h2 class="section-title">話しましょう。</h2>
-    <p class="section-sub" style="margin:0 auto 0;text-align:center">
-      取材・コラボレーション・ご相談、お気軽にどうぞ。<br>
-      返信は通常1〜2営業日以内です。
-    </p>
-
-    <div class="contact-emails">
-      <div class="contact-block">
-        <div class="contact-label">代表 直通</div>
-        <div class="contact-value"><a href="mailto:mail@yukihamada.jp">mail@yukihamada.jp</a></div>
-      </div>
-      <div class="contact-block">
-        <div class="contact-label">電話</div>
-        <div class="contact-value"><a href="tel:+819074090407">090-7409-0407</a></div>
-      </div>
-      <div class="contact-block">
-        <div class="contact-label">SNS</div>
-        <div class="contact-value"><a href="https://twitter.com/yukihamada" target="_blank">@yukihamada</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-brand">ENABLER INC. © 2026</div>
-  <div class="footer-links">
-    <a class="footer-link" href="/strategy/">サービスガイド</a>
-    <a class="footer-link" href="https://enablerdao.com" target="_blank">Products →</a>
-    <a class="footer-link" href="https://wearmu.com" target="_blank">MU</a>
-    <a class="footer-link" href="https://github.com/enablerdao" target="_blank">GitHub</a>
-    <a class="footer-link" href="https://twitter.com/yukihamada" target="_blank">Twitter</a>
-  </div>
-  <div class="footer-copy">enablerhq.com</div>
-</footer>
-
+  <footer class="shell site-footer">
+    <p>© 2026 ENABLER INC.</p>
+    <nav aria-label="フッターナビゲーション" data-en-aria-label="Footer navigation">
+      <a href="/strategy/" data-en="Service guide">サービスガイド</a>
+      <a href="/2036/" data-en="2036 vision">2036の構想</a>
+      <a href="#press" data-en="Press">プレス</a>
+      <a href="https://enablerdao.com" data-en="Enabler DAO">Enabler DAO</a>
+      <a href="https://github.com/enablerdao">GitHub</a>
+    </nav>
+  </footer>
 </body>
 </html>
