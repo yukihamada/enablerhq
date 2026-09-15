@@ -1,0 +1,366 @@
+本文へスキップ
+te
+teai.io
+Features
+Models
+Arena
+MCP
+Pricing
+Docs
+About
+Family
+EN
+ログイン
+Get API Key
+🇯🇵 日本発のLLMルーター — 東京リージョン・円建て・公開建値より安い自動値付け
+どのモデルの上にも、ひとつの土台。
+380+モデルを、円建て・東京経由・低遅延で。
+
+OpenAI互換とAnthropic Messages API互換。今のコードのまま、Claude・GPT・Gemini・DeepSeek など380+モデルを同じ土台から呼び分けられる。今日はこのモデル、来月は別のモデル。書き直しはいらない。単価は公開建値より安く自動設定、円建て請求とインボイス対応。
+
+無料で試す — 登録で100クレジット
+API Docs
+quickstart.py
+from openai import OpenAI
+
+client = OpenAI(
+  base_url="https://api.teai.io/v1",
+  api_key="te_your_api_key",
+)
+
+resp = client.chat.completions.create(
+  model="claude-sonnet-4-6",  # or gpt-4o, gemini-2.5-pro, deepseek-v3
+  messages=[{"role": "user", "content": "Hello!"}],
+)
+
+print(resp.choices[0].message.content)
+
+🧵 AIは、日本語の職場で働けるか。SHITATE-JP — 300問×14モデルの実測データを全公開 → shitate.ai
+
+LIVE NUMBERS
+契約前に、数字を全部見てから決めてください
+
+下の数字は宣伝文ではなく、いまこのページを開いた瞬間の実測です。認証なしの /api/v1/stats/public から60秒ごとに更新。良くなっても悪くなっても、そのまま出ます。
+
+406
+対応モデル
+681ms
+最速TTFT(実測)
+1.9s
+TTFT中央値(14モデル)
+135
+MCPツール+声(公開中)
+¥15
+作者に支払い済み(振込完了・80%還元)
+記帳(未払い含む): ¥33
+いま速いモデル(TTFT・最初の1文字まで)
+mistral-large	681ms	E2E 721ms
+gpt-5.4-nano	1.0s	E2E 1.0s
+glm-5.2	1.1s	E2E 1.1s
+gpt-5.6-sol	1.1s	E2E 1.2s
+claude-sonnet-5	1.3s	E2E 3.4s
+同一プロンプト・逐次実行・30分ごと。空応答は失敗に数える。計測方法と全モデル →
+自分の端末で確かめる(登録不要)
+curl -s https://teai.io/api/v1/stats/public | jq '{models,mcp}'
+curl -s https://teai.io/api/v1/latency | jq '.measured[]|{model,ttft_median_ms}'
+還元の累計はまだ小さい(有料呼出 25 回・外部作者 0)。隠さず出しています。なぜ公開したか →
+計測時刻 2026/9/15 0:55:19
+OpenAI互換で既存コードがそのまま動作
+|
+株式会社イネブラ提供
+|
+稼働状況を確認 →
+FEATURES
+土台がやること
+
+OpenAI SDK をそのまま使える互換 API。base_url を変えるだけで、下にあるどのモデル会社にも届く。速さ・切替・請求は土台が引き受ける。
+
+東京サーバー
+
+東京リージョン(ap-northeast-1)からAPIをプロキシ。ゲートウェイ自体の応答は実測で約0.2秒、モデル別の推論レイテンシ(TTFT/E2E)は /api/v1/latency で常時公開。国内からのアクセスに最適化。
+
+自動フォールバック
+
+プロバイダー障害時に自動で別モデルに切替。GPT-4oが落ちたらClaude、ClaudeがダメならGemini。ダウンタイムゼロ。
+
+公開建値より安い自動値付け
+
+市場の公開建値を6時間ごとに取り込み、主要モデルを建値より約2%安い単価に自動設定。単価も実測速度もAPIで全公開。
+
+日本語サポート
+
+ドキュメント、ダッシュボード、サポート全て日本語対応。請求書払い・インボイス対応で法人利用も安心。
+
+日本法人の安心 — 請求書・インボイス・SLA
+
+円建て・適格請求書（インボイス）・見積書・SLA 99.9%保証。海外ゲートウェイが真似できない、経理・調達が通せる唯一の日本法人。 OpenRouterとの違い →
+
+ストリーミング SSE
+
+全モデルでServer-Sent Events対応。チャットUIもエージェントも、リアルタイム応答を即座に表示。
+
+BYOK対応予定
+
+自分のAPIキーを持ち込み可能（対応予定）。データがteai.ioを経由しない直接モードを企業向けに整備中。
+
+本人声TTS「Koe」
+
+海外APIに無い、日本語・本人声の音声合成。model:"koe" を /v1/audio/speech に渡すだけ。声の登録・クローンは koe.live →
+
+MODELS
+下で入れ替わる 380+ のモデル、上は 1 つの API
+
+OpenAI, Claude, Gemini, Qwen, DeepSeek, Cohere, Llama, Grok, Kimi K3 など最新モデルを、同じコードで呼び分ける。新しいモデルが出ても、書き直しはいらない。🇯🇵 = 日本語特化/対応モデル。
+
+モデル	経路	入力 / 100万トークン	出力 / 100万トークン	実測速度	コンテキスト
+Nemotron 3 Nano 🇯🇵 無料枠 20回/日	DeepInfra直	¥6	¥25	—	128K
+DeepSeek V4 Flash 🇯🇵	OpenRouter	¥9	¥18	30 tok/s	1M
+Llama 4 Maverick	OpenRouter	¥28	¥96	30 tok/s	1M
+MiniMax M3	DeepInfra直	¥44	¥176	—	1M
+Gemini 2.5 Flash 🇯🇵	Google	¥44	¥368	—	1M
+Claude Haiku 4.5 🇯🇵	Anthropic	¥157	¥787	—	200K
+GLM-5.3	DeepInfra直	¥206	¥647	—	1M
+Qwen3.8 Max 🇯🇵	DeepInfra直	¥315	¥944	—	1M
+Grok 4.6	OpenRouter	¥294	¥882	30 tok/s	500K
+Claude Sonnet 5 🇯🇵	OpenRouter	¥294	¥1,470	30 tok/s	1M
+Gemini 3.1 Pro 🇯🇵	OpenRouter	¥294	¥1,764	30 tok/s	1M
+GPT-4o 🇯🇵	OpenAI	¥368	¥1,470	2 tok/s	128K
+GPT-5.4	OpenAI	¥368	¥2,205	2 tok/s	1.1M
+Kimi K3	OpenRouter	¥389	¥1,953	30 tok/s	1M
+Claude Opus 4.8 🇯🇵	Anthropic	¥735	¥3,675	—	1M
+Claude Fable 5 🇯🇵	Anthropic	¥1,470	¥7,350	—	1M
+
+* 表示価格は実際に支払う売値（公開建値×0.98・6時間ごと自動改定）。モデル名に :fastest を付けると実測最速経路。
+
+WHY TEAI.IO
+つくる人が、土台を選ぶ理由
+
+東京経由の低レイテンシ、円建てとインボイス、日本語のサポート。使うモデルは自由に、面倒は土台に。
+
+一般的なAPIゲートウェイ
+✕
+サーバー: 米国・欧州 (100-200ms)
+✕
+ドキュメント: 英語のみ
+✕
+サポート: 英語 / Discord
+✕
+請求書払い: 非対応
+✕
+日本語特化モデル: なし
+teai.io
+✓
+サーバー: 東京 ap-northeast-1
+✓
+ドキュメント・ダッシュボード: 日本語
+✓
+サポート: 日本語メール (Pro: 4h応答)
+✓
+請求書払い・インボイス対応
+✓
+Nemotron 3 Nano 日本語モデル無料
+SECURITY
+セキュリティとデータ保護
+
+データ保護、暗号化、コンプライアンスへの取り組み。
+
+TLS 1.2+ 暗号化
+
+全通信をTLS 1.2以上で暗号化。APIキーは一方向ハッシュで保存。
+
+プロンプト非保存
+
+リクエスト本文は一切保存しません。メタデータのみ90日保持。
+
+SOC 2 準備中
+
+2027年後半のSOC 2 Type II取得を目標に、第三者監査を実施中です。
+
+DPA提供可能
+
+データ処理契約テンプレートを法人向けに提供。APPI・GDPR対応。
+
+セキュリティ詳細を見る →
+
+USE CASES
+ユースケース
+
+teai.ioの活用シーン。
+
+SaaS開発
+
+社内チャットボットや顧客対応AIの構築に。OpenAI SDK互換で既存コードを1行変更するだけ。フェイルオーバーで可用性も確保。
+
+製造業DX
+
+品質検査レポートの自動要約、技術文書の検索AI構築に。日本語特化のNemotron 3 Nanoを無料で活用。
+
+研究開発
+
+複数LLMの性能比較、プロンプトエンジニアリングの検証に。1つのAPIキーで380以上のモデルを切り替え可能。Model Arenaで試す →
+
+Forge（行動モデル）
+
+エージェントの行動ログから業務特化モデルを自動生成。プロンプトエンジニアリングの限界を超え、「知恵」をモデル化。同意ベース・匿名化済み。
+
+Cost Optimizer AI
+
+推定トークン数と予算から最適モデルを自動推薦。「このタスクはQwen3.7 Flashで十分→月額コスト70%削減」等をAPIで取得。
+
+MCP Marketplace
+
+日本のビジネス課題を解決するMCPツールを公開・インストール。kintone/freee連携・法規チェック等。ツール開発者は課金額の80%を受け取れます。MCP一覧を見る →
+
+QUICK START
+3分で始める
+
+既存の OpenAI SDK コードをそのまま。base_url を変えるだけで、土台に乗る。
+
+01
+APIキーを取得
+
+アカウント登録後、ダッシュボードからAPIキーを即時発行。登録だけで100クレジット。
+
+02
+base_url を変更
+
+https://api.teai.io/v1 に変えるだけ。OpenAI, LangChain, LlamaIndex全対応。
+
+03
+モデルを指定して実行
+
+model パラメータで好きなモデルを指定。GPT-4o, Claude, Gemini, DeepSeek を自由に切替。
+
+curl
+curl https://api.teai.io/v1/chat/completions \
+  -H "Authorization: Bearer te_your_key" \
+  -H "Content-Type: application/json" \
+  -d '{ "model": "gpt-4o", "messages": [{"role": "user", "content": "Tokyo weather"}], "stream": true }'
+SENTE
+土台の上で先に動くエージェント「Sente」
+
+日本語で指示するだけ。teai.ioの380+モデルを自在に操るCLIエージェント。
+
+Senteを詳しく見る →
+
+インストールしたくない方には、ブラウザだけで同じSenteが動くSente Cloud →もあります。メールのログインコードだけですぐ使えます。
+
+PRICING
+シンプルな料金
+
+まずは無料で試せます。使った分だけ課金。テキストも音声もAPIも同じプランで。
+
+FREE
+¥0/月
+まず試したい方に
+登録だけで100クレジット
+100クレジットでも軽量モデルなら1,000回以上・Claude Sonnet級でも約10回
+Nemotron 3 Nano 日本語モデル 1日20回（無料）
+チャットUI (teai.io/chat)
+OpenAI互換API アクセス
+コミュニティサポート
+今すぐ無料で試す
+PRO
+¥4,350/月
+本番プロダクションに
+月30,000クレジット込み
+全380+モデル + 自動フォールバック
+7,200リクエスト/時
+利用分析ダッシュボード
+優先日本語サポート
+SLA 99.5%
+Pro を始める
+BUSINESS
+¥14,800/月
+チーム・法人向け
+月100,000クレジット込み
+全モデル + BYOK（自前APIキー持込）
+(対応予定)
+請求書払い・インボイス対応
+専任サポート（日本語）
+SLA 99.9% 保証
+お問い合わせ
+
+法人・大規模利用のご相談: info@enablerhq.com · 料金詳細を見る →
+
+Proの月30,000クレジットで何ができる？
+Nemotron 3 Nano
+無制限
+Pro特典（日次上限なし）
+GPT-4o
+約2,300回
+短い会話（1K入力+500出力）
+Claude Sonnet 4.6
+約3,000回
+短い会話（1K入力+500出力）
+Gemini 2.5 Flash
+約10,000回
+コスパ最強モデル
+FAQ
+よくある質問
+
+teai.ioについてよく寄せられる質問です。
+
+teai.io は chatweb.ai と何が違うの？
++
+無料プランで何ができますか？
++
+既存の OpenAI SDK からどうやって乗り換えますか？
++
+入力したプロンプトはどこかに保存されますか？
++
+法人での請求書払いや領収書発行はできますか？
++
+どのモデルの上にも、ひとつの土台。円建て・インボイス・日本語で。
+
+ドル建て請求・英語サポート・海外サーバーに不安を感じていませんか？teai.ioは東京サーバー・円建て請求・適格請求書（インボイス）・日本語サポートを標準装備。登録だけで100クレジット、カード不要です。
+
+100クレジット無料で始める
+ドキュメントを読む
+
+法人・大規模導入のご相談: info@enablerhq.com
+
+プロダクト
+料金プラン
+ドキュメント
+APIリファレンス
+モデル比較 Arena
+無料登録
+法人紹介プログラム
+モデル
+Kimi K3
+DeepSeek
+GLM-5
+Qwen
+おすすめモデル一覧
+比較
+vs OpenRouter
+vs Claude Code
+vs Anthropic直行
+Claude Code API
+DeepSeek API
+コミュニティ
+GitHub
+Issues / 要望
+リソース
+ブログ
+変更履歴
+稼働状況
+私たちがつくっているもの(ブランドの地図)
+会社情報
+セキュリティ
+法務
+利用規約
+プライバシー
+SLA
+
+teai.io © 2025-2026 株式会社イネブラ. All rights reserved.
+
+このページの料金・仕様は自動チェックで最新性を確認しています。最終確認: 2026-08-29
+
+Terms · Privacy · Security · SLA · About · Status · Changelog · API Reference
+
+関連プロダクト: Koe（本人声TTS/API） · chatweb.ai（音声チャット）
+
+🌐 Enabler のプロダクト
+🥋 JiuFlow👕 MU🎤 Koe🤖 teai.io💬 chatweb.ai🏠 bim.house®️ 商標まる✍️ ポン🏨 StayFlow📣 AdFlow📰 news.xyz

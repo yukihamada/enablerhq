@@ -1,0 +1,189 @@
+[
+  {
+    "lang": "ja",
+    "width": 320,
+    "scrollWidth": 320,
+    "overflow": false
+  },
+  {
+    "lang": "ja",
+    "width": 390,
+    "scrollWidth": 390,
+    "overflow": false
+  },
+  {
+    "lang": "ja",
+    "width": 768,
+    "scrollWidth": 768,
+    "overflow": false
+  },
+  {
+    "lang": "ja",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "overflow": false
+  },
+  {
+    "lang": "ja",
+    "group": "work",
+    "count": 1
+  },
+  {
+    "lang": "ja",
+    "group": "create",
+    "count": 4
+  },
+  {
+    "lang": "ja",
+    "group": "play",
+    "count": 2
+  },
+  {
+    "lang": "ja",
+    "group": "food",
+    "count": 1
+  },
+  {
+    "lang": "ja",
+    "group": "stay",
+    "count": 3
+  },
+  {
+    "lang": "ja",
+    "group": "all",
+    "count": 11
+  },
+  {
+    "lang": "ja",
+    "group": "recommended",
+    "count": 3
+  },
+  {
+    "lang": "ja",
+    "plan": "blank",
+    "request_preview": true,
+    "mailto_body_matches": true
+  },
+  {
+    "lang": "ja",
+    "plan": "camp",
+    "request_preview": true,
+    "mailto_body_matches": true
+  },
+  {
+    "lang": "ja",
+    "plan": "bbq",
+    "request_preview": true,
+    "mailto_body_matches": true
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "scrollWidth": 320,
+    "overflow": false
+  },
+  {
+    "lang": "en",
+    "width": 390,
+    "scrollWidth": 390,
+    "overflow": false
+  },
+  {
+    "lang": "en",
+    "width": 768,
+    "scrollWidth": 768,
+    "overflow": false
+  },
+  {
+    "lang": "en",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "overflow": false
+  },
+  {
+    "lang": "en",
+    "group": "work",
+    "count": 1
+  },
+  {
+    "lang": "en",
+    "group": "create",
+    "count": 4
+  },
+  {
+    "lang": "en",
+    "group": "play",
+    "count": 2
+  },
+  {
+    "lang": "en",
+    "group": "food",
+    "count": 1
+  },
+  {
+    "lang": "en",
+    "group": "stay",
+    "count": 3
+  },
+  {
+    "lang": "en",
+    "group": "all",
+    "count": 11
+  },
+  {
+    "lang": "en",
+    "group": "recommended",
+    "count": 3
+  },
+  {
+    "lang": "en",
+    "plan": "blank",
+    "request_preview": true,
+    "mailto_body_matches": true
+  },
+  {
+    "lang": "en",
+    "plan": "camp",
+    "request_preview": true,
+    "mailto_body_matches": true
+  },
+  {
+    "lang": "en",
+    "plan": "bbq",
+    "request_preview": true,
+    "mailto_body_matches": true
+  },
+  {
+    "local": "AUDIT.md",
+    "status": 200
+  },
+  {
+    "local": "DESIGN-REVIEW.md",
+    "status": 200
+  },
+  {
+    "local": "style.css",
+    "status": 200
+  },
+  {
+    "local": "edition.css",
+    "status": 200
+  },
+  {
+    "local": "edition.js",
+    "status": 200
+  },
+  {
+    "local": "app.js",
+    "status": 200
+  },
+  {
+    "local": "evidence/observations.json",
+    "status": 200
+  },
+  {
+    "javascript_errors": [],
+    "language_toggle": true,
+    "anchors": 10
+  }
+]

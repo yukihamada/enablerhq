@@ -1,0 +1,66 @@
+[
+  {
+    "product": "mu",
+    "lang": "ja",
+    "viewport": 320,
+    "document": 320,
+    "select": 276
+  },
+  {
+    "product": "mu",
+    "lang": "ja",
+    "viewport": 390,
+    "document": 390,
+    "select": 346
+  },
+  {
+    "product": "mu",
+    "lang": "ja",
+    "viewport": 768,
+    "document": 768,
+    "select": 636
+  },
+  {
+    "product": "mu",
+    "lang": "ja",
+    "viewport": 1440,
+    "document": 1440,
+    "select": 636
+  },
+  {
+    "product": "mu",
+    "lang": "en",
+    "viewport": 320,
+    "document": 320,
+    "select": 276
+  },
+  {
+    "product": "mu",
+    "lang": "en",
+    "viewport": 390,
+    "document": 390,
+    "select": 346
+  },
+  {
+    "product": "mu",
+    "lang": "en",
+    "viewport": 768,
+    "document": 768,
+    "select": 636
+  },
+  {
+    "product": "mu",
+    "lang": "en",
+    "viewport": 1440,
+    "document": 1440,
+    "select": 636
+  },
+  {
+    "product": "uta",
+    "client_artwork": [
+      "/api/cover/bjjb_hajimetakunaru",
+      "/api/cover/upload_abcd",
+      "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg"
+    ]
+  }
+]
