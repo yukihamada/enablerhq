@@ -50,7 +50,9 @@ function enhancePage(){
     copy.en[id+'Peek']=({strategy:'Small moments of usefulness. A business built to last.',reality:'Clear about today. Clear about what’s next.'})[id];
     summary.append(peek);}
   }
- const scenesSection=document.querySelector('.scenes');const sceneFold=el('details','editorial-fold shell');const sceneSummary=el('summary');sceneSummary.dataset.i='scenesFold';sceneSummary.textContent='ほかの組み合わせも、見てみる';copy.en.scenesFold='More ways to combine the experiences';scenesSection.before(sceneFold);sceneFold.append(sceneSummary,scenesSection);
+  // Replace the static retreat introduction with the shared, quote-free film.
+  story.replaceChildren();story.className='shell retreat-film';story.setAttribute('data-retreat-film','');
+  const scenesSection=document.querySelector('.scenes');const sceneFold=el('details','editorial-fold shell');const sceneSummary=el('summary');sceneSummary.dataset.i='scenesFold';sceneSummary.textContent='ほかの組み合わせも、見てみる';copy.en.scenesFold='More ways to combine the experiences';scenesSection.before(sceneFold);sceneFold.append(sceneSummary,scenesSection);
  const noscript=document.querySelector('noscript');if(noscript)noscript.insertAdjacentHTML('afterend','<p class="directory-footnote"><a href="#experiences" data-i="directoryCta">組み合わせて楽しむ、滞在と食のプランへ ↓</a></p>');copy.en.directoryCta='Combine a stay with a shared table ↓';
 }
 

@@ -1,0 +1,16 @@
+.retreat-film{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center;padding-top:40px;padding-bottom:40px;border-top:1px solid #d7d8cc;margin-block:24px;color:#282b24}
+.retreat-film h2{font-size:clamp(26px,3vw,38px);line-height:1.45;margin:0 0 20px;letter-spacing:-.03em}
+.retreat-film p{margin:0 0 16px;font-size:15px;line-height:1.9}
+.retreat-film .retreat-film-lead{font-size:18px}
+.retreat-film .retreat-film-eyebrow{font-size:12px;color:#485536;letter-spacing:.08em;font-weight:600}
+.retreat-film video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#282b24;border-radius:8px}
+.retreat-film-view{min-width:0}.retreat-film-view>video+p{margin-top:14px}
+.retreat-film .retreat-film-note{font-size:12px;color:#595e51;line-height:1.8}
+.retreat-film-actions{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.retreat-film a,.retreat-film summary{display:inline-flex;align-items:center;min-height:44px;font-size:14px;line-height:1.6;color:#485536;cursor:pointer}
+.retreat-film .retreat-film-primary{background:#485536;color:white;padding:12px 20px;border-radius:4px;text-decoration:none;margin-bottom:4px}
+.retreat-film details{margin:8px 0}.retreat-film summary{display:list-item;padding:10px 0}
+.retreat-film details p{font-size:14px;margin:8px 0 16px}
+.retreat-film a:focus-visible,.retreat-film summary:focus-visible,.retreat-film video:focus-visible{outline:3px solid #485536;outline-offset:4px}
+.retreat-film-error{border-left:3px solid #795122;padding-left:14px}
+@media(max-width:800px){.retreat-film{grid-template-columns:1fr;gap:24px;padding-top:28px;padding-bottom:28px}}
