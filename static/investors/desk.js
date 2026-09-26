@@ -4,7 +4,15 @@
   const en = () => document.documentElement.lang === 'en';
   const text = (ja, english) => en() ? english : ja;
   let challenge, email, quota, pending, busy = false, authenticated = false;
-  let status = null;
+  let status = null, available = false, availabilityChecked = false;
+  function renderAvailability() {
+    $('desk-online').hidden = !available;
+    $('desk-availability').textContent = available
+      ? text('オンライン窓口に接続できました。FAQ検索はメール認証後、1日100回まで（UTC 0時リセット）です。', 'Online desk connected. FAQ search allows 100 questions per day after email verification, resetting at 00:00 UTC.')
+      : availabilityChecked ? text('オンライン窓口は準備中です。登録不要のメールでご相談ください。', 'The online desk is being prepared. Please enquire by email; no registration is needed.')
+      : text('オンライン窓口の接続状況を確認しています。メールでの相談はいつでも利用できます。', 'Checking online desk availability. You can enquire by email at any time.');
+    $('orders-signin').hidden = !available || authenticated;
+  }
   const answers = [];
   const messages = {
     unavailable: ['窓口を利用できません。時間をおいて再度お試しいただくか、下のメールでご相談ください。', 'The desk is unavailable. Please try later or contact us by email below.'],
@@ -38,6 +46,7 @@
   }
   function setAuth(value) {
     authenticated = value;
+    renderAvailability();
     $('desk-register').hidden = value;
     $('desk-verify').hidden = true;
     $('desk-authenticated').hidden = !value;
@@ -133,10 +142,13 @@
     $('desk-question').value = samples[button.dataset.question][en() ? 1 : 0];
     if (authenticated) $('desk-question').focus(); else { showStatus('selected'); $('desk-email').focus(); }
   });
-  new MutationObserver(() => { renderQuota(); showStatus(status); renderAnswers(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  new MutationObserver(() => { renderQuota(); showStatus(status); renderAnswers(); renderAvailability(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   (async () => {
-    try { quota = await api('session'); setAuth(true); renderQuota(); }
-    catch (error) { if (error.message !== 'unauthenticated') showStatus(error.message); }
+    renderAvailability();
+    try { quota = await api('session'); available = true; setAuth(true); renderQuota(); }
+    catch (error) { available = error.message === 'unauthenticated'; }
+    availabilityChecked = true;
+    renderAvailability();
     if (location.hostname === '127.0.0.1') {
       try {
         const response = await fetch('/__desk-preview');

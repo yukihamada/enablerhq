@@ -129,7 +129,7 @@
     generation++;
     authenticated = event.detail.authenticated;
     if (event.detail.authenticated) run(refresh);
-    else { orders = []; admin = false; pending = null; $('orders-authenticated').hidden = true; $('orders-signin').hidden = false; $('orders-create').reset(); render(); status(''); }
+    else { orders = []; admin = false; pending = null; $('orders-authenticated').hidden = true; $('orders-signin').hidden = $('desk-online').hidden; $('orders-create').reset(); render(); status(''); }
   });
   new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 })();
