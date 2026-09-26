@@ -7,6 +7,7 @@
   let status = null, available = false, availabilityChecked = false;
   function renderAvailability() {
     $('desk-online').hidden = !available;
+    for (const node of document.querySelectorAll('[data-online-only]')) node.hidden = !available;
     $('desk-availability').textContent = available
       ? text('オンライン窓口に接続できました。FAQ検索はメール認証後、1日100回まで（UTC 0時リセット）です。', 'Online desk connected. FAQ search allows 100 questions per day after email verification, resetting at 00:00 UTC.')
       : availabilityChecked ? text('オンライン窓口は準備中です。登録不要のメールでご相談ください。', 'The online desk is being prepared. Please enquire by email; no registration is needed.')
