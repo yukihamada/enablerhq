@@ -4,3 +4,6 @@
 .env.local
 .idea/
 .vscode/
+node_modules/
+.wrangler/
+.dev.vars

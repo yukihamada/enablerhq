@@ -1,0 +1,12 @@
+{
+  "name": "enabler-investor-desk",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "preview:desk": "node tools/preview-desk.mjs"
+  },
+  "devDependencies": {
+    "miniflare": "5.20260921.0-alpha"
+  }
+}

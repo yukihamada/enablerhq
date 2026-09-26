@@ -1,0 +1,16 @@
+{
+  "name": "enabler-investor-desk",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-07-01",
+  "workers_dev": false,
+  "routes": [{ "pattern": "enablerhq.com/api/investors/*", "zone_name": "enablerhq.com" }],
+  "vars": {
+    "ALLOWED_ORIGIN": "https://enablerhq.com",
+    "MAIL_FROM": "Enabler <info@enablerdao.com>",
+    "OWNER_EMAIL": "mail@yukihamada.jp"
+  },
+  "durable_objects": {
+    "bindings": [{ "name": "DESK", "class_name": "InvestorDesk" }, { "name": "ORDERS", "class_name": "OrderDesk" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["InvestorDesk", "OrderDesk"] }]
+}
